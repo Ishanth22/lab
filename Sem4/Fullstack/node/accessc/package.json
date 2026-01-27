@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "cal": "file:../cal/cal-1.0.0.tgz"
+  }
+}

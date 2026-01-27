@@ -1,0 +1,22 @@
+*{
+    margin: 2px solid black;
+    background-color: bisque;
+    font-style: italic;
+    
+}.head{
+    background-color:orchid;
+    color: red;
+    text-align: center;
+    border: 1px solid black ;
+    z-index:1;
+
+}
+.marq{
+    color: #333; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+}
+.para{
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}

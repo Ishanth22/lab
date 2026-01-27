@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student form</title>
+    <style>
+        .first{
+            text-align: center;
+            background-color: cyan;
+            color:black;
+        }
+        .form{
+            padding:10px;
+            margin: 10px;
+            background-color: rgb(152, 221, 42);
+        }
+    </style>
+</head>
+<body onload="onlo()">
+   
+    <h1 class="first">Student Registration form</h1>
+
+    <FORM class="form" id="form"  >
+    <label for="fname">Enter yout name:</label>
+    <input type="text" id="name" onmouseover="changeco()" onmouseout="unchangeco()"><br><br>
+    <label for="fname" >Enter your father's name:</label>
+    <input type="text" id="faname" onfocus="focus()"> <br><br>
+    <label for="age">Enter your age</label>
+     <input type="number" id="age" required><br><br>
+     <label for="gender">Gender</label>
+     <input type="radio" value="male" id="gender">Male <input type="radio" value="female">female <br><br>
+    <label for="dob">Enter your date of birth:</label>
+    <input type="date" id="dob"><br><br>
+    <label for="email">Enter your email id:</label>
+    <input type="email" id="email" onfocus="focuse()"><br><br>
+    <label for="ph">Enter your telphone number:</label>
+    <input type="tel" id="ph" onkeypress="changecolpress()" onkeydown="changecoldown()" onkeyup="changecolup()"><br><br>
+    <label for="ys">year of study</label>
+    <select name="ys" id="year">
+        <option value="select">Select</option>
+        <option value="1">first</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+        <option value="4">Fourth</option>
+    </select> <br><br>
+    <label for="pass" >enter password</label>
+    <input type="password" id="pass"><br><br>
+
+    <p id="passnot"></p>
+    <label for="card">attach valid id proof</label>
+  <input type="file" id="file"><br><br>
+     <label for="url">provide link for linkedin or social media</label>
+  <input type="url" id="url"><br><br>
+    <label for="motive">motive to join csea</label><br>
+    <textarea value="text"></textarea><br>
+    
+ 
+
+
+    <input type="submit" name="submit" id="submit">
+    <input type="reset" name="reset" id="reset">
+     <script src="form.js"></script>
+</FORM>
+</body>
+</html>

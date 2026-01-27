@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="onlo()">
+    <p id="a">hello</p>
+    <script>document.getElementById("a").innerHTML="hey hi"</script>
+
+
+    <p id="par" onclick="func()">click the text</p>
+    <script>function func(){
+        document.getElementById("par").innerHTML="hello"
+    }
+        </script>
+
+
+
+    <p id="style" onclick="stle()" style="color: blue;">click to change the color</p>
+    <script>
+        function stle(){
+            document.getElementById("style").style.color="green";
+        }
+    </script>
+
+
+    <button id="btn1">Submit</button>
+    <script> 
+        document.getElementById("btn1").addEventListener("click", abc1);
+        function abc1()
+            {
+                alert ("This is click");
+            }
+    </script>
+
+
+    <h2 style="text-align:right; color:red;"> It is heading under inline CSS </h2>
+    <p style="text-align:justify; color:green;"> It is paragraph under inline CSS.</p>
+
+
+    <h3> Adding Multiple Event Listener to an Element </h3>
+    <p>Click on submit button below to which to see the effect of multiple event listeners added to an element.</p>
+    <button id="btn1">Submit</button>
+    <script> document.getElementById("btn1").addEventListener("click", abc1);
+    document.getElementById("btn1").addEventListener("click", abc2);
+    function abc1()
+    {
+       alert ("This is first click");
+    }
+    function abc2()
+    {   
+    alert ("This is second click");
+    }
+    </script>
+
+
+    <p id="para1", onclick="abc()">Click here</p>
+    <script> function abc()
+    { para1.innerHTML = "This is changed text after click";
+    }
+    </script>
+
+
+    <input type="text" id="text" onkeypress="callpress()"></input><br>
+    <script> function callpress(){
+        document.getElementById("text").style.backgroundColor="yellow"
+    }
+    </script>
+
+    <input type="text" id="text1" onkeydown="calldown()"></input><br>
+    <script> function calldown(){
+        document.getElementById("text1").style.backgroundColor="blue"
+    }
+    </script>
+
+
+<input type="text" id="text2" onkeyup="callup()"></input>
+    <script> function callup(){
+        document.getElementById("text2").style.backgroundColor="green"
+    }
+    </script>
+
+    <script>
+        function onlo(){
+            alert("loaded")
+        }
+    </script>
+
+</body>
+</html>

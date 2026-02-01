@@ -1,1 +1,188 @@
 
+
+## **1. Airline Flight Information (with Constraints)**
+
+```sql
+CREATE TABLE Flights (
+    flno NUMBER,
+    from_city VARCHAR2(20),
+    to_city VARCHAR2(20),
+    distance NUMBER CHECK (distance > 0),
+    departs VARCHAR2(10),
+    arrives VARCHAR2(10),
+    price NUMBER(8,2) CHECK (price > 0),
+    CONSTRAINT pk_flights PRIMARY KEY (flno)
+);
+```
+
+```sql
+CREATE TABLE Aircraft (
+    aid NUMBER,
+    aname VARCHAR2(20) NOT NULL,
+    cruisingrange NUMBER CHECK (cruisingrange > 0),
+    CONSTRAINT pk_aircraft PRIMARY KEY (aid)
+);
+```
+
+```sql
+CREATE TABLE Employees (
+    eid NUMBER,
+    ename VARCHAR2(20) NOT NULL,
+    salary NUMBER CHECK (salary > 0),
+    CONSTRAINT pk_employees PRIMARY KEY (eid)
+);
+```
+
+```sql
+CREATE TABLE Certified (
+    eid NUMBER,
+    aid NUMBER,
+    CONSTRAINT pk_certified PRIMARY KEY (eid, aid),
+    CONSTRAINT fk_cert_emp FOREIGN KEY (eid) REFERENCES Employees(eid),
+    CONSTRAINT fk_cert_air FOREIGN KEY (aid) REFERENCES Aircraft(aid)
+);
+```
+
+---
+
+## **2. Hospital Database (with Constraints)**
+
+```sql
+CREATE TABLE Patients (
+    pnum NUMBER,
+    pname VARCHAR2(20) NOT NULL,
+    age NUMBER CHECK (age > 0),
+    CONSTRAINT pk_patients PRIMARY KEY (pnum)
+);
+```
+
+```sql
+CREATE TABLE Doctors (
+    dnum NUMBER,
+    dname VARCHAR2(20) NOT NULL,
+    phono NUMBER UNIQUE,
+    rank VARCHAR2(20),
+    CONSTRAINT pk_doctors PRIMARY KEY (dnum)
+);
+```
+
+```sql
+CREATE TABLE Visits (
+    pnum NUMBER,
+    dnum NUMBER,
+    vdate DATE,
+    diagnosis VARCHAR2(30),
+    CONSTRAINT pk_visits PRIMARY KEY (pnum, dnum),
+    CONSTRAINT fk_vis_pat FOREIGN KEY (pnum) REFERENCES Patients(pnum),
+    CONSTRAINT fk_vis_doc FOREIGN KEY (dnum) REFERENCES Doctors(dnum)
+);
+```
+
+---
+
+## **3. Employee Database (with Constraints)**
+
+```sql
+CREATE TABLE Employee (
+    empname VARCHAR2(20),
+    street VARCHAR2(30),
+    city VARCHAR2(20),
+    CONSTRAINT pk_employee PRIMARY KEY (empname)
+);
+```
+
+```sql
+CREATE TABLE Company (
+    companyname VARCHAR2(20),
+    city VARCHAR2(20),
+    CONSTRAINT pk_company PRIMARY KEY (companyname)
+);
+```
+
+```sql
+CREATE TABLE Works (
+    empname VARCHAR2(20),
+    companyname VARCHAR2(20),
+    salary NUMBER CHECK (salary > 0),
+    CONSTRAINT pk_works PRIMARY KEY (empname, companyname),
+    CONSTRAINT fk_work_emp FOREIGN KEY (empname) REFERENCES Employee(empname),
+    CONSTRAINT fk_work_comp FOREIGN KEY (companyname) REFERENCES Company(companyname)
+);
+```
+
+```sql
+CREATE TABLE Manages (
+    empname VARCHAR2(20),
+    managername VARCHAR2(20),
+    CONSTRAINT pk_manages PRIMARY KEY (empname)
+);
+```
+
+---
+
+## **4. Supplier–Parts Database (with Constraints)**
+
+```sql
+CREATE TABLE Suppliers (
+    sid NUMBER,
+    sname VARCHAR2(20) NOT NULL,
+    address VARCHAR2(30),
+    CONSTRAINT pk_suppliers PRIMARY KEY (sid)
+);
+```
+
+```sql
+CREATE TABLE Parts (
+    pid NUMBER,
+    pname VARCHAR2(20) NOT NULL,
+    color VARCHAR2(10),
+    CONSTRAINT pk_parts PRIMARY KEY (pid)
+);
+```
+
+```sql
+CREATE TABLE Catalog (
+    sid NUMBER,
+    pid NUMBER,
+    cost NUMBER(8,2) CHECK (cost > 0),
+    CONSTRAINT pk_catalog PRIMARY KEY (sid, pid),
+    CONSTRAINT fk_cat_sup FOREIGN KEY (sid) REFERENCES Suppliers(sid),
+    CONSTRAINT fk_cat_part FOREIGN KEY (pid) REFERENCES Parts(pid)
+);
+```
+
+---
+
+## **5. Sailors Database (with Constraints)**
+
+```sql
+CREATE TABLE Sailors (
+    sid NUMBER,
+    sname VARCHAR2(20) NOT NULL,
+    rating NUMBER CHECK (rating BETWEEN 1 AND 10),
+    age NUMBER(4,1) CHECK (age > 0),
+    CONSTRAINT pk_sailors PRIMARY KEY (sid)
+);
+```
+
+```sql
+CREATE TABLE Boats (
+    bid NUMBER,
+    bname VARCHAR2(20),
+    color VARCHAR2(10),
+    CONSTRAINT pk_boats PRIMARY KEY (bid)
+);
+```
+
+```sql
+CREATE TABLE Reserves (
+    sid NUMBER,
+    bid NUMBER,
+    day DATE,
+    CONSTRAINT pk_reserves PRIMARY KEY (sid, bid),
+    CONSTRAINT fk_res_sail FOREIGN KEY (sid) REFERENCES Sailors(sid),
+    CONSTRAINT fk_res_boat FOREIGN KEY (bid) REFERENCES Boats(bid)
+);
+```
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Library Management System</h1>
+
+        <section class="form-section">
+            <h3>Add New Book</h3>
+            <form id="bookForm">
+                <div>Book Name</div>
+                <input type="text" id="title"  required>
+                <div>Author</div>
+                <input type="text" id="author" required>
+                <div>subject</div>
+                <input type="text" id="subject" required>
+                <div>Date</div>
+                <input type="date" id="publishDate" required>
+                <button type="submit">Add Book</button>
+            </form>
+        </section>
+
+        <section class="filter-section">
+            <input type="text" id="searchBar" placeholder="Search by Title or Author...">
+        </section>
+
+        <section class="list-section">
+            <div id="bookList">
+                </div>
+          
+        </section>
+    </div>
+
+    <script src="library.js"></script>
+</body>
+</html>
+
